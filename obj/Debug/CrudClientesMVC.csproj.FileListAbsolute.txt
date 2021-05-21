@@ -84,3 +84,7 @@ C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\obj\Debug\CrudCliente
 C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\obj\Debug\CrudClientesMVC.csproj.CopyComplete
 C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\obj\Debug\CrudClientesMVC.dll
 C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\obj\Debug\CrudClientesMVC.pdb
+C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\bin\EntityFramework.dll
+C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\bin\EntityFramework.SqlServer.dll
+C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\bin\EntityFramework.xml
+C:\Users\Usuario\Desktop\Repos Win\reposc#\CrudClientesMVC\bin\EntityFramework.SqlServer.xml

@@ -1,6 +1,8 @@
 # CrudClientesMVC
 Usando aspe .net con Entity framework 
 
+# Tutorial de referencia 
+https://www.youtube.com/watch?v=0Gu56u71G18&ab_channel=Develoteca
 
 # Instalar El Entity Framework
 1. click derecho sobre el proyecto y click en Administrador de paquetes nuget
@@ -22,3 +24,16 @@ y aceptar
 12. clic en siguiente
 13. clic en finalizar
 14. nos carga una imagen como con un diagrama de tablas
+
+# Generar Controles y vistas por medio de EF (Entity Framework)
+**Usaremos Database First**
+**Crear controlador**
+1. clic derecho en carpeta controllers => clic en controler => agregar => controller
+2. seleccionamos laopcion "Controlador MVC con vistas que usa EF"
+3. seleccionamos el modelo que creamos al conectar con la DB ( en este caso tblClientes) 
+4. Seleccionamos el contecto creado al conectar la DB (En este caso CRUDEntities (CrudClientesMVC))
+5. Seleccionamos el Layout que vamos a usar en la opcion que dice usar pagina de diseño
+6. esta ubicado en vistas => shared => layout (~/Views/Shared/_Layout.cshtml) 
+7. desmarcamos la opcion de referencias de scripts y clic en agregar 
+    7.1 si te da error de se produjo un error intente regenerar el proyecto con un rebuild se soluciona
+8. se crean los controllers vistas 
