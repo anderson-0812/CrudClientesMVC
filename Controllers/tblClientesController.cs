@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -12,22 +13,22 @@ namespace CrudClientesMVC.Controllers
 {
     public class tblClientesController : Controller
     {
-        private CRUDEntities db = new CRUDEntities();
+        private CRUDEntities1 db = new CRUDEntities1();
 
         // GET: tblClientes
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.tblClientes.ToList());
+            return View(await db.tblClientes.ToListAsync());
         }
 
         // GET: tblClientes/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblClientes tblClientes = db.tblClientes.Find(id);
+            tblClientes tblClientes = await db.tblClientes.FindAsync(id);
             if (tblClientes == null)
             {
                 return HttpNotFound();
@@ -46,12 +47,12 @@ namespace CrudClientesMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombres,Apellidos,Correo,Ci,ID")] tblClientes tblClientes)
+        public async Task<ActionResult> Create([Bind(Include = "Nombres,Apellidos,Correo,Ci,ID")] tblClientes tblClientes)
         {
             if (ModelState.IsValid)
             {
                 db.tblClientes.Add(tblClientes);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -59,13 +60,13 @@ namespace CrudClientesMVC.Controllers
         }
 
         // GET: tblClientes/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblClientes tblClientes = db.tblClientes.Find(id);
+            tblClientes tblClientes = await db.tblClientes.FindAsync(id);
             if (tblClientes == null)
             {
                 return HttpNotFound();
@@ -78,25 +79,25 @@ namespace CrudClientesMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nombres,Apellidos,Correo,Ci,ID")] tblClientes tblClientes)
+        public async Task<ActionResult> Edit([Bind(Include = "Nombres,Apellidos,Correo,Ci,ID")] tblClientes tblClientes)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(tblClientes).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(tblClientes);
         }
 
         // GET: tblClientes/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblClientes tblClientes = db.tblClientes.Find(id);
+            tblClientes tblClientes = await db.tblClientes.FindAsync(id);
             if (tblClientes == null)
             {
                 return HttpNotFound();
@@ -107,11 +108,11 @@ namespace CrudClientesMVC.Controllers
         // POST: tblClientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            tblClientes tblClientes = db.tblClientes.Find(id);
+            tblClientes tblClientes = await db.tblClientes.FindAsync(id);
             db.tblClientes.Remove(tblClientes);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

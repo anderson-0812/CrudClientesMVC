@@ -37,3 +37,7 @@ y aceptar
 7. desmarcamos la opcion de referencias de scripts y clic en agregar 
     7.1 si te da error de se produjo un error intente regenerar el proyecto con un rebuild se soluciona
 8. se crean los controllers vistas 
+
+# Notas
+1. si da error por cuestiond e longitud de campos lo mejor es crear de nuevo la conexion ala base de datos y probar si asi se actualziaron 
+los cambiso hechos en la misma, si aun rpesenta error crear nuevamente como adicional el controlador 
