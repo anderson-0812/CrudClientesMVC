@@ -12,5 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_INSERTAR_CLIENTE" FunctionName="CRUDModel.Store.SP_INSERTAR_CLIENTE" />
   </EntityContainerMapping>
 </Mapping>

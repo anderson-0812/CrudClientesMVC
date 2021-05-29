@@ -12,6 +12,8 @@ namespace CrudClientesMVC
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class CRUDEntities1 : DbContext
     {
@@ -26,5 +28,26 @@ namespace CrudClientesMVC
         }
     
         public virtual DbSet<tblClientes> tblClientes { get; set; }
+    
+        public virtual ObjectResult<string> SP_INSERTAR_CLIENTE(string nombres, string apellidos, string correo, string cI)
+        {
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("Nombres", nombres) :
+                new ObjectParameter("Nombres", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var cIParameter = cI != null ?
+                new ObjectParameter("CI", cI) :
+                new ObjectParameter("CI", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_INSERTAR_CLIENTE", nombresParameter, apellidosParameter, correoParameter, cIParameter);
+        }
     }
 }

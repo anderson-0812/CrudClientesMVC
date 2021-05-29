@@ -10,6 +10,12 @@
     <Property Name="Ci" Type="nchar" MaxLength="10" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
+  <Function Name="SP_INSERTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombres" Type="varchar" Mode="In" />
+    <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+    <Parameter Name="Correo" Type="nchar" Mode="In" />
+    <Parameter Name="CI" Type="nchar" Mode="In" />
+  </Function>
   <EntityContainer Name="CRUDModelStoreContainer">
     <EntitySet Name="tblClientes" EntityType="Self.tblClientes" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

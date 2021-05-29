@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CrudClientesMVC;
+using System.Data.SqlClient;
 
 namespace CrudClientesMVC.Controllers
 {
@@ -15,6 +16,17 @@ namespace CrudClientesMVC.Controllers
     {
         private CRUDEntities1 db = new CRUDEntities1();
 
+        public ActionResult listClientes() {
+            /*SqlParameter[] param = new SqlParameter[]
+            {
+                new SqlParameter("@")
+            };*/
+            var tblClientes = db.Database.SqlQuery<tblClientes>("sp_get_Clientes").ToList();
+            return View(tblClientes);
+
+
+
+        }
         // GET: tblClientes
         public async Task<ActionResult> Index()
         {

@@ -211,6 +211,7 @@
     <Content Include="Views\tblClientes\Details.cshtml" />
     <Content Include="Views\tblClientes\Edit.cshtml" />
     <Content Include="Views\tblClientes\Index.cshtml" />
+    <Content Include="Views\tblClientes\listClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

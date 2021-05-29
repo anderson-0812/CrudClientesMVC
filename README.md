@@ -9,7 +9,8 @@ https://www.youtube.com/watch?v=0Gu56u71G18&ab_channel=Develoteca
 2. en examniar buscar Entity y escoger el q dice Entity Framework nada mas la v6.4.4
 
 # Conectar con la base de datos 
-1. Click derecho en elproyecto
+1. Click derecho en elproyecto 
+15. (Nota se debe hacer clic sobre la carpeta models para un mejor orden en este caso Model1 es elmodelo peroe sta fuera de la carpeta model)
 2. clic en agregar
 3. clic en nuevo elemento
 4. clic en Datos
@@ -41,3 +42,6 @@ y aceptar
 # Notas
 1. si da error por cuestiond e longitud de campos lo mejor es crear de nuevo la conexion ala base de datos y probar si asi se actualziaron 
 los cambiso hechos en la misma, si aun rpesenta error crear nuevamente como adicional el controlador 
+
+# USAR STORE PROCEDURE CON EF Y MVC 
+1. link https://www.youtube.com/watch?v=uZfxKjqdc9M&ab_channel=abctutorial

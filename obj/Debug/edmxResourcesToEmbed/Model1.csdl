@@ -12,5 +12,11 @@
   </EntityType>
   <EntityContainer Name="CRUDEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblClientes" EntityType="Self.tblClientes" />
+    <FunctionImport Name="SP_INSERTAR_CLIENTE" ReturnType="Collection(String)">
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="Apellidos" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="CI" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>
