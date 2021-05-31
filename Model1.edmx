@@ -15,6 +15,18 @@
           <Property Name="Ci" Type="nchar" MaxLength="10" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <Function Name="sp_crearCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_EDITAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="nchar" Mode="In" />
+          <Parameter Name="CI" Type="nchar" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_get_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_INSERTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombres" Type="varchar" Mode="In" />
           <Parameter Name="Apellidos" Type="varchar" Mode="In" />
@@ -46,7 +58,26 @@
             <Parameter Name="Correo" Mode="In" Type="String" />
             <Parameter Name="CI" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_crearCliente" ReturnType="Collection(String)" />
+          <FunctionImport Name="SP_EDITAR_CLIENTE" ReturnType="Collection(String)">
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="CI" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_CLIENTE" ReturnType="Collection(String)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_get_Clientes" ReturnType="Collection(CRUDModel.sp_get_Clientes_Result)" />
         </EntityContainer>
+        <ComplexType Name="sp_get_Clientes_Result">
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Ci" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -65,6 +96,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SP_INSERTAR_CLIENTE" FunctionName="CRUDModel.Store.SP_INSERTAR_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="sp_crearCliente" FunctionName="CRUDModel.Store.sp_crearCliente" />
+          <FunctionImportMapping FunctionImportName="SP_EDITAR_CLIENTE" FunctionName="CRUDModel.Store.SP_EDITAR_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_CLIENTE" FunctionName="CRUDModel.Store.SP_ELIMINAR_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="sp_get_Clientes" FunctionName="CRUDModel.Store.sp_get_Clientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CRUDModel.sp_get_Clientes_Result">
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Ci" ColumnName="Ci" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -49,5 +49,49 @@ namespace CrudClientesMVC
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_INSERTAR_CLIENTE", nombresParameter, apellidosParameter, correoParameter, cIParameter);
         }
+    
+        public virtual ObjectResult<string> sp_crearCliente()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_crearCliente");
+        }
+    
+        public virtual ObjectResult<string> SP_EDITAR_CLIENTE(string nombres, string apellidos, string correo, string cI, Nullable<int> iD)
+        {
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("Nombres", nombres) :
+                new ObjectParameter("Nombres", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var cIParameter = cI != null ?
+                new ObjectParameter("CI", cI) :
+                new ObjectParameter("CI", typeof(string));
+    
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_EDITAR_CLIENTE", nombresParameter, apellidosParameter, correoParameter, cIParameter, iDParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_ELIMINAR_CLIENTE(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_ELIMINAR_CLIENTE", iDParameter);
+        }
+    
+        public virtual ObjectResult<sp_get_Clientes_Result> sp_get_Clientes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_get_Clientes_Result>("sp_get_Clientes");
+        }
     }
 }

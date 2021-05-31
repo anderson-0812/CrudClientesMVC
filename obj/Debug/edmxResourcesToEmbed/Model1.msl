@@ -13,5 +13,19 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="SP_INSERTAR_CLIENTE" FunctionName="CRUDModel.Store.SP_INSERTAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="sp_crearCliente" FunctionName="CRUDModel.Store.sp_crearCliente" />
+    <FunctionImportMapping FunctionImportName="SP_EDITAR_CLIENTE" FunctionName="CRUDModel.Store.SP_EDITAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_ELIMINAR_CLIENTE" FunctionName="CRUDModel.Store.SP_ELIMINAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="sp_get_Clientes" FunctionName="CRUDModel.Store.sp_get_Clientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CRUDModel.sp_get_Clientes_Result">
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Ci" ColumnName="Ci" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

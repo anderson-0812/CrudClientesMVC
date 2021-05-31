@@ -63,8 +63,10 @@ namespace CrudClientesMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblClientes.Add(tblClientes);
-                await db.SaveChangesAsync();
+                //db.tblClientes.Add(tblClientes);
+                Console.WriteLine(db);
+                db.SP_INSERTAR_CLIENTE(tblClientes.Nombres, tblClientes.Apellidos, tblClientes.Correo, tblClientes.Ci);
+                //await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 

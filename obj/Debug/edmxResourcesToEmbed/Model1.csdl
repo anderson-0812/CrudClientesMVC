@@ -18,5 +18,24 @@
       <Parameter Name="Correo" Mode="In" Type="String" />
       <Parameter Name="CI" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_crearCliente" ReturnType="Collection(String)" />
+    <FunctionImport Name="SP_EDITAR_CLIENTE" ReturnType="Collection(String)">
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="Apellidos" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="CI" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ELIMINAR_CLIENTE" ReturnType="Collection(String)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_Clientes" ReturnType="Collection(CRUDModel.sp_get_Clientes_Result)" />
   </EntityContainer>
+  <ComplexType Name="sp_get_Clientes_Result">
+    <Property Type="String" Name="Nombres" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Ci" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+  </ComplexType>
 </Schema>
