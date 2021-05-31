@@ -45,3 +45,8 @@ los cambiso hechos en la misma, si aun rpesenta error crear nuevamente como adic
 
 # USAR STORE PROCEDURE CON EF Y MVC 
 1. link https://www.youtube.com/watch?v=uZfxKjqdc9M&ab_channel=abctutorial
+2. Nos vamos al diagrama y clic derecho => actualizar modelo de datos 
+3. nos vamos a funciones y procedimientos almacenados y escogemos los sp que necesitemos y finalizar
+4. Nos vamos al Explorador de modelos para ello ahcemos esto
+5. clic en la opcion ver => otras ventanas => clic en explodaror de Entity Data Model
+6. y ahi aparecen todos los sps extraidos de la DB 
