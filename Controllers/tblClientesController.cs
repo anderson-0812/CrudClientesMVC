@@ -97,8 +97,10 @@ namespace CrudClientesMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblClientes).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SP_EDITAR_CLIENTE(tblClientes.Nombres, tblClientes.Apellidos, tblClientes.Correo, tblClientes.Ci, tblClientes.ID);
+
+                //db.Entry(tblClientes).State = EntityState.Modified;
+                //await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(tblClientes);
@@ -125,8 +127,10 @@ namespace CrudClientesMVC.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             tblClientes tblClientes = await db.tblClientes.FindAsync(id);
-            db.tblClientes.Remove(tblClientes);
-            await db.SaveChangesAsync();
+            db.SP_ELIMINAR_CLIENTE(tblClientes.ID);
+
+            //db.tblClientes.Remove(tblClientes);
+            //await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
